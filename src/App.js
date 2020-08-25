@@ -1,69 +1,59 @@
 import React,{useState,useEffect} from 'react';
+import xToColour from './xToColour';
 
-// 0 (255 0 0) 0.1666 (255 255 0) 0.33 (0 255 0) 0.5 (0 255 255) 0.66 (0 0 255) 0.83333 (255 0 255) 1 (255 0 0));
-function xToColour(x){
-  if (x ===0){
-    x=x+1;
-  }
-  const fractionAlong = window.innerWidth/x;
-  if (fractionAlong>0.1666){
-    return;
-  }
-  if (fractionAlong>0.3333){
-    return;
-  }
-  if (fractionAlong>0.5){
-    return;
-  }
-  if (fractionAlong>0.8333){
-    return;
-  }
-    return;
-  
-}
 
-function CurrentColour({x}){
+function CurrentColour({x,colour}){
   const styles = { 
-    transform: `translate(calc(${x}px - 50%), 0px)` 
+    transform: `translate(calc(${x}px - 50%), 0px)`,
+    backgroundColor:colour 
 }; 
-console.log(styles);
   return <div style={styles} className="current-colour"></div>;
 }
 
 function ColourBox(){
   const [isDown,setIsDown] = useState(false);
   const [x,setX]= useState(0);
+  const [colour,setColour]= useState("rgb(255,0,0)");
+  const [currentWidth,setCurrentWidth]= useState(window.innerWidth);
 
   useEffect(()=>{
     window.addEventListener('mouseup', onMouseUp);
     window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('resize', onResize);
     return function cleanup() {
       window.removeEventListener('mouseup',onMouseUp);
       window.removeEventListener('mousemove',onMouseMove);
+      window.removeEventListener('resize',onResize);
     }
     
   });
 
+  function onResize(e) {
+    const newWidth = e.currentTarget.innerWidth;
+    const ratio = newWidth/currentWidth;
+    setX(x * ratio);
+    setCurrentWidth(newWidth);
+  }
+
   function onMouseDown(e){
-    setIsDown(true);
+    setX(e.pageX);
+    setColour(xToColour(e.pageX));
+    setIsDown(true);    
   }
 
   function onMouseMove(e){
     if(isDown){
       setX(e.pageX);
+      setColour(xToColour(e.pageX));
     }
   }
 
   function onMouseUp(e){
     if(isDown){
     setIsDown(false);
-  
+    }
   }
-  }
-  if(isDown){
-  return <div className="colour-box-cont"><button onMouseDown={onMouseDown}  className="colour-box"></button><CurrentColour x={x}/></div>;
-  }
-  return <div className="colour-box-cont"><button onMouseDown={onMouseDown}  className="colour-box"></button></div>;
+  return <div className="colour-box-cont"><button onMouseDown={onMouseDown}  className="colour-box"></button><CurrentColour x={x} colour={colour}/></div>;
 }
 
 function App() {

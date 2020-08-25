@@ -16,10 +16,10 @@ body{
 }
 
 .current-colour{
-  display: absolute;
-  top:0px;
-  width:5vw;
+  position: absolute;
+  top:20vh;
+  width:10vw;
   height: 15vw;
   border-radius: 0vw 0vw 5vw 5vw;
-  background-color: black;
+  border:black solid 2px ;
 }
