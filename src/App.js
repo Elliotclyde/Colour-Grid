@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import xToColour from './xToColour';
+import processGridColour from './GridUtils';
 
 function keepInScreen(x){
   if(x<0){
@@ -10,45 +11,6 @@ function keepInScreen(x){
   }
   return x;
 }
-
-function lightenRgbBy(rgb,amount){
-
-    const rgbArray = rgb.replace(/ /g,'').slice(4, -1).split(',');    
-    const primary = rgbArray.findIndex(e=>(parseInt(e)===255));
-    const zeroColour = rgbArray.findIndex(e=>(parseInt(e)===0));
-    const thirdColour = rgbArray.findIndex((e,i)=>(i!==primary&&i!==zeroColour));
-    const returnArray = [...rgbArray];
-    returnArray[zeroColour] = parseInt(rgbArray[zeroColour])+(51*amount);
-    returnArray[thirdColour] = Math.round(parseInt(rgbArray[thirdColour]) + ((255 - rgbArray[thirdColour])/5)*amount);
-    console.log();
-    return(`rgb(${returnArray.join()})`);
-}
-
-function darkenRgbBy(rgb,amount){
-
-  const rgbArray = rgb.replace(/ /g,'').slice(4, -1).split(',');    
-  const primary = rgbArray.findIndex(e=>(parseInt(e)===255));
-  const zeroColour = rgbArray.findIndex(e=>(parseInt(e)===0));
-  const thirdColour = rgbArray.findIndex((e,i)=>(i!==primary&&i!==zeroColour));
-  const returnArray = [...rgbArray];
-
-  returnArray[primary]= Math.round(parseInt(rgbArray[primary])-(63.75*amount));
-  returnArray[thirdColour] = Math.round( parseInt(rgbArray[thirdColour]) - (rgbArray[thirdColour]/4)*amount);
-
-  return(`rgb(${returnArray.join()})`);
-}
-
-function processLightness(colour, index){
-
-    if(index<4){
-      return(darkenRgbBy(colour,(4-index)));
-    }
-    if(index>4){
-      return(lightenRgbBy(colour,(index-4)));
-    }
-    return colour;
-}
-
 
 function CurrentColour({x,colour,onMouseDown}){
   const styles = { 
@@ -107,6 +69,7 @@ function ColourBox({setColour,colour}){
 
 function GridBuilder({colour,gridColour,onGenerateHueGrid}){
   const grid = createGrid(gridColour);
+  console.log(gridColour);
   return(
     <div className="grid-builder">
     <button style={{backgroundColor:colour}} onClick={onGenerateHueGrid}>Generate hue grid</button>
@@ -116,7 +79,7 @@ function GridBuilder({colour,gridColour,onGenerateHueGrid}){
       grid.map((row, rowIndex)=>{
         const newRow = row.map((item, columnIndex)=>{
           return <div key={`grid-item-row${rowIndex}-column-${columnIndex}`} className="grid-item" 
-          style={{backgroundColor:processLightness(item,columnIndex)}}></div>
+          style={{backgroundColor:processGridColour(item,columnIndex,rowIndex)}}></div>
         });
         return newRow;
       })
@@ -128,12 +91,11 @@ function GridBuilder({colour,gridColour,onGenerateHueGrid}){
 
 function App() {
   const [colour,setColour]= useState("rgb(255,0,0)");
-  const [gridColour,setGridColour]= useState("rgb(150,150,150)");
+  const [gridColour,setGridColour]= useState("rgb(255,0,0)");
 
   function onGenerateHueGrid(){
 
     setGridColour(colour);
-    lightenRgbBy(colour,1);
   }
 
   return (
