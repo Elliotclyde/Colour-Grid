@@ -115,6 +115,7 @@ function GridBuilder({ colour, gridColour, onGenerateHueGrid }) {
     <div className="grid-builder">
       <a href="#grid" className="hue-button" id="hue-button" style={{ backgroundColor: colour }} onClick={onGenerateHueGrid}>Generate hue grid</a>
       <div className="grid-spacer"></div>
+      <h2>Click to copy hashcode</h2>
       <div id="grid" className="grid">
         {
           grid.map((row, rowIndex) => {

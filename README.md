@@ -1,68 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Colour grid
 
-## Available Scripts
+A different kind of colour palette generator
 
-In the project directory, you can run:
+## Why? 
 
-### `npm start`
+To quote [Refactoring UI by Adam Wathan and Steve Schoger](https://refactoringui.com/previews/building-your-color-palette/):
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+"Ever used one of those fancy color palette generators? You know, the ones where you pick a starting color, tweak some options that probably include some musical jargon like "triad" or "major fourth", and are then bestowed the five perfect color swatches you should use to build your website? . . .You can't build anything with five hex codes. To build something real, you need a much more comprehensive set of colors to choose from."
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This colour palette generator will NOT give you multiple hues which will work together in your website. 
 
-### `npm test`
+It instead takes one hue and gives you 100 options for different shades of lightness/darkness, and different saturations based on your single hue. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This means you can build your website with a number of colour options from your base colour, and can give you the variety of light and saturation levels needed building webites and UIs. This speeds up development as you have a premade system of colours to choose from.
 
-### `npm run build`
+## How can I use colour grid?
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can either click the buttons in the grid to copy the hash code of your colour, or alternatively, generate 100 utility CSS Custom properties with. You can use these in your app to specify the degree of lightness and saturation.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Is this hosted somewhere? 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+You can find the project hosted on my [personal website](elliotclyde.nz/colour-grid). Feel free to use it: 
