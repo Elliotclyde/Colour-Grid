@@ -16,7 +16,7 @@ This means you can build your website with a number of colour options from your 
 
 ## How can I use colour grid?
 
-You can either click the buttons in the grid to copy the hash code of your colour, or alternatively, generate 100 utility CSS Custom properties with. You can use these in your app to specify the degree of lightness and saturation.
+You can either click the buttons in the grid to copy the hash code of your colour, or alternatively, generate 100 utility CSS Custom properties to copy into your CSS. You can use these in your app to specify the degree of lightness and saturation.
 
 ## Is this hosted somewhere? 
 
