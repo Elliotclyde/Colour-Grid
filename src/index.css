@@ -5,10 +5,32 @@
 
 body{
   margin:0;
- 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a{
+  text-decoration: none;
+  color:inherit;
+}
+.app-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-container>h1{
+  font-size: calc(20px + 1vw);
+  width: fit-content;
+}
+.app-container>ol{
+  padding: 0;
+  text-align:center ;
+  list-style-type: none;
+  line-height: 30px;
+  font-weight: bold;
 }
 .colour-box-cont{
+  margin-top: 5vh;
   position: relative;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   height: 35vh;
@@ -53,7 +75,7 @@ body{
   border: 1px solid #bbb;
   overflow: visible;
   font-size: calc(10px + 1vw);
-  font-family:  arial, helvetica, sans-serif;
+  font-weight: bold;
   color: black;
   white-space: nowrap;
   border-radius: 5px;
@@ -62,7 +84,7 @@ body{
   font-weight: bold;
 }
 .grid-spacer{
-  height:10vw;
+  height: 5vw;
   max-height: 70px;
 }
 .grid{
@@ -78,3 +100,24 @@ body{
   padding-top: 100%;
   border: white 3px solid ;
 }
+.grid-item:active{
+  border: 0;
+}
+
+h2{margin-top: 5vh;    font-size: calc(10px + 1vw);}
+.css-variables-text{
+  overflow:hidden;
+  width:80vw;
+  max-width: 700px;
+  resize: none;
+  font-family:inherit ;
+  font-size: calc(7px + 1vw);
+}
+.prefix-cont{
+  margin:1em;
+}
+.prefix-label{
+  margin-right: 1em;
+  display: inline;
+  font-size: calc(10px + 1vw);}
+  #prefix{    font-size: calc(10px + 1vw);}
