@@ -20,4 +20,4 @@ You can either click the buttons in the grid to copy the hash code of your colou
 
 ## Is this hosted somewhere? 
 
-You can find the project hosted on my [personal website](http://elliotclyde.nz/colour-grid). Feel free to use it: 
+You can find the project hosted on my [personal website](https://www.elliotclyde.nz/colour-grid). Feel free to use it: 
